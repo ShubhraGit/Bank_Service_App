@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tab-content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Banking Application</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="register-tab" data-toggle="tab" href="#register" role="tab">User Registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="transfer-tab" data-toggle="tab" href="#transfer" role="tab">Fund Transfer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="fetch-tab" data-toggle="tab" href="#fetch" role="tab">Fetch Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="delete-tab" data-toggle="tab" href="#delete" role="tab">Delete Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="deposit-tab" data-toggle="tab" href="#deposit" role="tab">Deposit Amount</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="withdraw-tab" data-toggle="tab" href="#withdraw" role="tab">Withdraw Amount</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="TransCheck-tab" data-toggle="tab" href="#transaction" role="tab">Bank Statement</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- User Registration Form -->
+            <div class="tab-pane fade show active" id="register" role="tabpanel">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="reg-username">Username</label>
+                        <input type="text" class="form-control" id="reg-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <input type="password" class="form-control" id="reg-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Email</label>
+                        <input type="email" class="form-control" id="reg-email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <div id="register-message" class="mt-2"></div>
+            </div>
+
+            <!-- Fund Transfer Form -->
+            <div class="tab-pane fade" id="transfer" role="tabpanel">
+                <form id="transfer-form">
+                    <div class="form-group">
+                        <label for="from-account">From Account</label>
+                        <input type="text" class="form-control" id="from-account" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="to-account">To Account</label>
+                        <input type="text" class="form-control" id="to-account" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" class="form-control" id="amount" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Transfer</button>
+                </form>
+                <div id="transfer-message" class="mt-2"></div>
+            </div>
+
+            <!-- Fetch Users Details -->
+            <div class="tab-pane fade" id="fetch" role="tabpanel">
+                <button id="fetch-users" class="btn btn-primary">Fetch Users</button>
+                <ul id="user-list" class="mt-2"></ul>
+            </div>
+
+            <!-- Account Delete Form -->
+            <div class="tab-pane fade" id="delete" role="tabpanel">
+                <form id="delete-form">
+                    <div class="form-group">
+                        <label for="delete-username">Username</label>
+                        <input type="text" class="form-control" id="delete-username" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                </form>
+                <div id="delete-message" class="mt-2"></div>
+            </div>
+
+            <!-- Deposit Amount -->
+            <div class="tab-pane fade" id="deposit" role="tabpanel">
+                <form id="deposit-form">
+                <div class="form-group">
+                    <label for="deposit-username">Username</label>
+                    <input type="text" class="form-control" id="deposit-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="deposit-accountno">Accountno</label>
+                    <input type="text" class="form-control" id="deposit-accountno" required>
+                </div>
+                <div class="form-group">
+                    <label for="deposit-amount">Amount</label>
+                    <input type="text" class="form-control" id="deposit-amount" required>
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Deposit</button>
+            </form>
+             <div id="deposit-message" class="mt-2"></div>
+            </div>
+
+
+            <!-- Withdraw Amount -->
+            <div class="tab-pane fade" id="withdraw" role="tabpanel">
+                <form id="withdraw-form">
+                <div class="form-group">
+                    <label for="withdraw-username">Username</label>
+                    <input type="text" class="form-control" id="withdraw-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="withdraw-accountno">Accountno</label>
+                    <input type="text" class="form-control" id="withdraw-accountno" required>
+                </div>
+                <div class="form-group">
+                    <label for="withdraw-amount">Amount</label>
+                    <input type="text" class="form-control" id="withdraw-amount" required>
+                </div>
+               
+                <button type="submit" class="btn btn-primary" ">Withdraw</button>
+            </form>
+             <div id="withdraw-message" class="mt-2"></div>
+            </div>
+
+
+
+
+            <!-- Transaction Check -->
+            <div class="tab-pane fade" id="transaction" role="tabpanel">
+                <form id="transaction-form">
+                <div class="form-group">
+                    <label for="transaction-username">Username</label>
+                    <input type="text" class="form-control" id="transaction-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-account_no">Accountno</label>
+                    <input type="text" class="form-control" id="transaction-account_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-startDate">Start Date</label>
+                    <input type="text" class="form-control" id="transaction-startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-endDate">End Date</label>
+                    <input type="text" class="form-control" id="transaction-endDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-email">Email</label>
+                    <input type="text" class="form-control" id="transaction-email" required>
+                </div>
+                <button type="submit" class="btn btn-primary" ">Bank Statement</button>
+            </form>
+             <div id="transaction-message" class="mt-2"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+     
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // User Registration
+            $('#register-form').on('submit', async function (e) {
+                e.preventDefault();
+                var name = $('#reg-username').val();
+                var password = $('#reg-password').val();
+                var email=  $('#reg-email').val();
+                // Simulate a registration process
+                
+              const userData = {
+                                    "name": name,
+                                    "password": password,
+                                    "email": email,
+                                    "balance": 10000
+                                }  
+              const api = "http://localhost:8080/register"  
+            
+                const result = await fetch(api, { method: 'POST',
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+                $('#register-message').text(`User ${name} registered successfully!`);
+                $(this).trigger('reset');
+            });
+
+            // Fund Transfer
+            $('#transfer-form').on('submit', function (e) {
+                e.preventDefault();
+                var fromAccount = $('#from-account').val();
+                var toAccount = $('#to-account').val();
+                var amount = $('#amount').val();
+                // Simulate a fund transfer process
+                const api = "http://localhost:8080/transfer?fromAccount="
+                +fromAccount+"&toAccount="+toAccount+"&amount="+amount;
+
+                fetch(api, {method: 'PUT'})
+
+                $('#transfer-message').text(`Transferred ${amount} from ${fromAccount} to ${toAccount}.`);
+                $(this).trigger('reset');
+            });
+
+            // Fetch Users
+          //  $('#fetch-users').on('click',  function() 
+          //  {
+                // Simulate fetching users
+               // var users = ['user1', 'user2', 'user3'];
+                //$('#user-list').empty();
+
+                // Fetch Users
+                 $('#fetch-users').on('click', function () 
+                { // Simulate fetching users
+                  //   var users = ['user1', 'user2', 'user3'];
+                    //  $('#user-list').empty(); 
+                      //users.forEach(function (user)
+                       //{ $('#user-list').append(`<li>${user}</li>`);
+
+                        //}); 
+
+              const api = "http://localhost:8080/users"  
+                const result = fetch(api, { method: 'GET'});
+                const finalResult =  result.name();
+                var users = finalResult;
+                users.forEach(function (users) {
+                    $('#user-list').append(`<li>${users}</li>`);
+                });
+            });
+
+            // Delete Account
+            $('#delete-form').on('submit', function (e) {
+                e.preventDefault();
+                var name = $('#delete-username').val();
+                // Simulate account deletion
+                $('#delete-message').text(`Account for ${name} deleted.`);
+                $(this).trigger('reset');
+            });
+
+            // Deposit Amount
+            $('#deposit-form').on('submit', function (e) {
+                e.preventDefault();
+                var name = $('#deposit-username').val();
+                var amount = $('#deposit-amount').val();
+                var accountno = $('#deposit-accountno').val();
+                const api = "http://localhost:8080/deposit?accountno="+accountno+"&amount="+amount;
+
+                fetch(api, {method: 'PUT'})
+
+                $('#deposit-message').text(`Deposited ${amount} to ${accountno}.Account holder name ${name}.`);
+                $(this).trigger('reset');
+            });
+
+             // Withdraw Amount
+             $('#withdraw-form').on('submit', function (e) {
+                e.preventDefault();
+                var name = $('#withdraw-username').val();
+                var amount = $('#withdraw-amount').val();
+                var accountno = $('#withdraw-accountno').val();
+                const api = "http://localhost:8080/withdraw?accountno="+accountno+"&amount="+amount;
+
+                fetch(api, {method: 'PUT'})
+
+                $('#withdraw-message').text(`Withdraw ${amount} from ${accountno}.Account holder name ${name}.`);
+                $(this).trigger('reset');
+            });
+
+
+
+            // Transaction Check
+            $('#transaction-form').on('submit', function (e) {
+                e.preventDefault();
+                var name = $('#transaction-username').val();
+               
+                var account_no = $('#transaction-account_no').val();
+
+                var startDate = $('#transaction-startDate').val();
+                var endDate = $('#transaction-endDate').val();
+                var email = $('#transaction-email').val();
+                const api = "http://localhost:8080/bankStatement?account_no="
+                +account_no+"&startDate="+startDate+"&endDate="+endDate+"&email="+email;
+
+                fetch(api, {method: 'GET'})
+
+                $('#transaction-message').append(`<li>Bank Statement for ${account_no}<li>`);
+               
+                $(this).trigger('reset');
+            });
+
+
+        });
+    </script>
+</body>
+</html>
